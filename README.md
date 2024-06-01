@@ -13,9 +13,11 @@
 Générer des légendes à partir d'image consiste à prédire une description textuelle, ce qui la rend précieuse pour les informations qu'elle renseigne. Cette tâche est particulièrement pertinente dans la télédétection, où de vastes quantités d'images sont continuellement collectées. Dans ce projet, j'ai exploré une approche basée sur la segmentation pour "comprendre" la composition d'une image, puis j'ai utilisé un modèle de langage pour générer des légendes à partir des compositions extraites.
 
 ![alt text](medias_README/image.png)
+
 *Figure 1 : Image de télédétection avec ses légendes (dataset RSCID)*
 
 ![alt text](medias_README/image5.png)
+
 *Figure 2 : Schéma de la tâche effectuée*
 
 
@@ -55,6 +57,7 @@ classes = {
     'Markers & Obstacles' : 'ar-marker', 'obstacle'
 }
 ```
+
 *Code 1 : Répartition des classes en groupe*
 
 Ci-dessous le lien du dataset AID : [Google Drive - AID](https://drive.google.com/drive/folders/1Tnhm-qxDZvaFPDoBa1VbEHBaFg2DuUrE?usp=drive_link)
@@ -74,6 +77,7 @@ Pour cela, U-Net fournit une architecture en forme de "U" avec des couches d'enc
 Ci-dessous la matrice de confusion des classes regroupantes.
 
 ![alt text](medias_README/image3.png)
+
 *Figure 3 : Matrice de confusion - UnetMobileNet x AID*
 
 Après une analyse des résultats, les résultats ne sont pas trop mals : il y a une précision moyenne de 86% et un taux "IoU" de 35% qui peut être expliqué par un déséquilibre des classes. Par exemple, sur les images de télédétection, il y a un pourcentage de pixels appartenant à l'environnement ("Artificial Surface" / "Vegetation") très élevé que le pourcentage de pixels appartenant aux individus.
@@ -88,6 +92,7 @@ Après avoir entrainé le modèle sur le dataset AID, il suffit d'utiliser le mo
 
 
 ![alt text](medias_README/image4.png)
+
 *Figure 5 : Dataset RSCID - Autoroute et sa segmentation*
 
 ## **Calcul statistique et composition des images**
@@ -130,6 +135,7 @@ def compare_coordinates(closest, coordinates):
 
   return comparisons
 ```
+
 *Code 2 : Calcul pour comparer l'emplacement de deux centroïdes*
 
 Avec cette analyse, je possède enfin la composition de chacune de mes images.
@@ -139,6 +145,7 @@ Avec cette analyse, je possède enfin la composition de chacune de mes images.
 Après avoir calculé toutes les compositions de notre dataset,il est maintenant temps d'entrainer le modèle de langage qui permettra de générer les descriptions. Pour l'entrainement du modèle, je me base sur la séparation suivante : 1.092 compositions pour les tests et descriptions (prises au hasard entre les cinq phrases du dataset RSCID) et donc 9.815 compositions (initialement 9.829 mais avec la suppression des doublons, 9.815 compositions) pour l'entrainement.
 
 ![alt text](medias_README/image6.png)
+
 *Figure 6 : Courbe de la perte d'entrainement avec 60 époques*
 
 ## Evaluation du LLM
@@ -184,6 +191,7 @@ Correspondances : "Un", "chien", "court", "joue", "avec", "une", "balle", "dans"
 Synonymes et variantes : "court" (synonyme de "joue"), "parc" (espace vert)
 Score METEOR = 85%
 ```
+
 *Code 3 : Application des différentes métriques sur un exemple simple*
 
 En applicant les mêmes métriques sur le set des données de test, j'obtiens les résultats ci-dessous. Les résultats ne sont pas très performants, mais il peut y avoir plusieurs raisons. Les objets présents sur les images ne sont pas facilement reconnaissable : par exemple, UnetMobilenet a eu beaucoup de mal à reconnaitre les bâtiments des aéroports ou d'autres batiments cités dans la base de données RSCID.  
