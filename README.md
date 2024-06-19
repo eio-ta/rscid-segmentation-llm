@@ -179,8 +179,8 @@ Correspondances : "Un chien joue avec", "une balle dans le"
 Score BLEU-4 = 20% (2/10 séquences)
 
 ROUGE-L
-Plus longue sous-séquence commune (LCS) : "Un chien joue avec une balle dans le parc"
-Score ROUGE-L = 100% (toute la légende générée correspond à une séquence dans la légende de référence)
+Plus longue sous-séquence commune (LCS) : "joue avec une balle dans le parc"
+Score ROUGE-L = 80% (toute la légende générée correspond à une séquence dans la légende de référence)
 
 CIDEr
 Correspondances pondérées par TF-IDF : "chien", "joue", "balle", "parc"
