@@ -148,6 +148,10 @@ Après avoir calculé toutes les compositions de notre dataset,il est maintenant
 
 *Figure 6 : Courbe de la perte d'entrainement avec 60 époques*
 
+![alt text](medias_README/results.png)
+
+*Figure 7 : Résultats*
+
 ## Evaluation du LLM
 
 Suite à l'entrainement du LLM, le modèle devient de plus en plus précis. L'évaluation d'un LLM est très compliquée : on ne peut donc pas utiliser les métriques classiques comme la précision ou le rappel pour évaluer les performances de la tâche. Pour cela, on introduit différentes métriques comme :
