@@ -166,30 +166,29 @@ Légende de référence :
 Légende générée : "Un chien court et joue avec une balle dans le parc."
 
 BLEU-1 (unigrammes) : 
-Correspondances : "Un", "chien", "court", "joue", "avec", "une", "balle", "dans", "parc"
-Score BLEU-1 = 90% (9/10 mots)
+Correspondances : "Un", "chien", "court", "joue", "avec", "une", "balle", "dans", "le", "parc"
+Score BLEU-1 = 91%
 BLEU-2 (bigrammes) : 
-Correspondances : "Un chien", "joue avec", "une balle", "dans le", "le parc"
-Score BLEU-2 = 50% (5/10 paires)
+Correspondances : "Un chien", "chien court", "avec une", "joue avec", "une balle", "balle dans", "dans le", "le parc"
+Score BLEU-2 = 85%
 BLEU-3 (trigrammes) : 
-Correspondances : "Un chien joue", "avec une balle", "dans le parc"
-Score BLEU-3 = 30% (3/10 séquences)
+Correspondances : "Un chien joue", "joue avec une", "avec une balle", "une balle dans", "balle dans le", "dans le parc"
+Score BLEU-3 = 78% 
 BLEU-4 (quadgrammes) :
-Correspondances : "Un chien joue avec", "une balle dans le"
-Score BLEU-4 = 20% (2/10 séquences)
+Correspondances : "joue avec une balle", "avec une balle dans", "une balle dans le"
+Score BLEU-4 = 70%
 
 ROUGE-L
 Plus longue sous-séquence commune (LCS) : "joue avec une balle dans le parc"
-Score ROUGE-L = 80% (toute la légende générée correspond à une séquence dans la légende de référence)
+Score ROUGE-L = 91% (toute la légende générée correspond à une séquence dans la légende de référence)
 
 CIDEr
 Correspondances pondérées par TF-IDF : "chien", "joue", "balle", "parc"
-Score CIDEr = 1.0 (correspondance parfaite avec pondération TF-IDF)
+Score CIDEr = 1 
 
 METEOR
-Correspondances : "Un", "chien", "court", "joue", "avec", "une", "balle", "dans", "parc"
-Synonymes et variantes : "court" (synonyme de "joue"), "parc" (espace vert)
-Score METEOR = 85%
+Synonymes et variantes : "court" (synonyme de "joue")
+Score METEOR = 54%
 ```
 
 *Code 3 : Application des différentes métriques sur un exemple simple*
