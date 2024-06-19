@@ -183,7 +183,7 @@ Plus longue sous-séquence commune (LCS) : "joue avec une balle dans le parc"
 Score ROUGE-L = 91% (toute la légende générée correspond à une séquence dans la légende de référence)
 
 CIDEr
-Correspondances pondérées par TF-IDF : "chien", "joue", "balle", "parc"
+Correspondances pondérées par TF-IDF : "chien", "balle", "une", "dans"
 Score CIDEr = 1 
 
 METEOR
